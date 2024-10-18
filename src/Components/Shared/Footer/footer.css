@@ -1,0 +1,28 @@
+footer {
+  margin-top: 10%;
+}
+
+.footer-contain {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+}
+.footer-logo {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.footer-logo img {
+  width: 80px;
+}
+
+.footer-logo h2 {
+  font-size: 40px;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 2% 0;
+  background: #000;
+  color: aliceblue;
+}
