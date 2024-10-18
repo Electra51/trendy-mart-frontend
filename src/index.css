@@ -6,4 +6,27 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(
+    45deg,
+    hsl(0deg 0% 93%) 0%,
+    hsl(53deg 9% 93%) 8%,
+    hsl(53deg 17% 93%) 17%,
+    hsl(54deg 25% 93%) 25%,
+    hsl(54deg 32% 93%) 33%,
+    hsl(54deg 39% 92%) 42%,
+    hsl(54deg 45% 92%) 50%,
+    hsl(54deg 52% 92%) 58%,
+    hsl(54deg 58% 92%) 67%,
+    hsl(55deg 63% 92%) 75%,
+    hsl(55deg 69% 91%) 83%,
+    hsl(55deg 74% 91%) 92%,
+    hsl(55deg 78% 91%) 100%
+  );
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  /* border: 1px solid rgb(194, 15, 15); */
 }
