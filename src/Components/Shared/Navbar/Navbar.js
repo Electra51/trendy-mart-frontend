@@ -5,6 +5,7 @@ import logo from "../../../assets/logo.png";
 import Button from "../../Common/Button/Button";
 import megaMenu from "../../../assets/megamenuPic.jpg";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -102,7 +103,9 @@ const Navbar = () => {
               <a href="#">Cart(0)</a>
             </li>
             <li>
-              <Button title="Sign In" color="#5A5CDA" />
+              <Link to="sign-in">
+                <Button title="Sign In" color="#5A5CDA" />
+              </Link>
             </li>
           </ul>
         </div>

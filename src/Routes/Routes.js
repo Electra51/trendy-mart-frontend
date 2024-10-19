@@ -1,7 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Main from "../Layouts/Main";
-import Home from "../Pages/ErrorPage/HomePage/Home";
+import Home from "../Pages/HomePage/Home";
+import Login from "../Pages/SignInPage/Login";
+import Register from "../Pages/SignUPPage/Register";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import ProductsPage from "../Pages/AdminDashboardPage/ProductsMenuPage/ProductsPage";
+import CategoriesPage from "../Pages/AdminDashboardPage/CategoriesMenuPage/CategoriesPage";
+import Profile from "../Pages/AdminDashboardPage/ProfilePage/Profile";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +21,38 @@ const router = createBrowserRouter([
         element: <Home />,
       },
     ],
+  },
+  {
+    path: "/admin-dashboard",
+    element: <DashboardLayout />,
+    errorElement: <ErrorPage />,
+
+    children: [
+      {
+        path: "/admin-dashboard/products",
+        element: <ProductsPage />,
+      },
+      {
+        path: "/admin-dashboard/categories",
+        element: <CategoriesPage />,
+      },
+      {
+        path: "/admin-dashboard/orders",
+        element: <CategoriesPage />,
+      },
+      {
+        path: "/admin-dashboard/profile",
+        element: <Profile />,
+      },
+    ],
+  },
+  {
+    path: "/sign-in",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Register />,
   },
 ]);
 

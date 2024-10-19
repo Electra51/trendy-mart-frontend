@@ -1,0 +1,107 @@
+/* Sidebar Container */
+.sidebar {
+  width: 17%;
+  background-color: rgb(252, 254, 255);
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Logo Section */
+.sidebar .logo {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 6px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  padding-bottom: 6px;
+}
+
+.sidebar .logo img {
+  width: 40px;
+  height: auto;
+}
+
+.sidebar .logo p {
+  color: rgb(17, 16, 16);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* Menu List */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+/* Menu Item */
+.sidebar ul li {
+  width: 100%;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(23, 23, 23);
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: rgb(17, 17, 17);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar ul li a:hover {
+  background-color: #5a5cda; /* Darker red for hover effect */
+  cursor: pointer;
+  color: white;
+}
+.sidebar-profile {
+  display: flex;
+  justify-content: start;
+  padding: 0 13px;
+  align-items: center;
+  gap: 5px;
+}
+.user-content {
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid rgb(235, 235, 235);
+  padding-top: 6px;
+}
+.sidebar-profile img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.sidebar-profile p {
+  font-size: 18px;
+  color: black;
+  margin-top: 6px;
+}
+
+.logout {
+  /* border: 1px solid red; */
+
+  padding: 5px 10px;
+  gap: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background-color: #f37a1e;
+  color: white;
+}

@@ -1,0 +1,8 @@
+.dashboard-part {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.dashboard-content {
+  width: 100%;
+}

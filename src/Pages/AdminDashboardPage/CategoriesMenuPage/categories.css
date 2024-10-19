@@ -1,0 +1,15 @@
+.add-button {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 15px 50px;
+  align-items: center;
+}
+.add-button p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.category-list {
+  padding: 15px 50px;
+}
