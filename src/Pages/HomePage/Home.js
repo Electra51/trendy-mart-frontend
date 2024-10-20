@@ -7,8 +7,8 @@ const Home = () => {
   return (
     <div>
       <HelmetComponent title={"Home | TrendyMart"} />
-      <HeroSection />
-      <AvailableProduct />
+      {/* <HeroSection />
+      <AvailableProduct /> */}
     </div>
   );
 };

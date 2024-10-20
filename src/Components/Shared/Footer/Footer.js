@@ -1,32 +1,36 @@
 import React from "react";
 import logo from "../../../assets/logo.png";
 import "./footer.css";
+import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="container">
         <div className="footer-contain">
-          <div>
+          <div className="footer-left">
             <div className="footer-logo">
-              <img src={logo} alt="" />
-
+              <Link to={"/"}>
+                <img src={logo} alt="TrendyMart Logo" />
+              </Link>
               <p>TrendyMart</p>
             </div>
             <p className="">Got questions? Call us 24/7!</p>
-            <div className="">
-              <p>03 111 666 144</p>
-              <p>0317 1777015.</p>
-            </div>
+            <p>03 111 666 144</p>
             <div className="">
               <p className="">Contact info</p>
               <p className="">info@winstore.pk</p>
+              <div className="social-icons">
+                <FaFacebook />
+                <FaInstagram />
+                <FaLinkedin />
+              </div>
             </div>
-            <div className="">{/* <SocialIcon /> */}</div>
           </div>
           <div>
-            <p className="">Trending</p>
-            <div className="">
+            <p className="footer-heading">Trending</p>
+            <div className="footer-para">
               <p className="">Installments</p>
               <p className="">Electronics</p>
               <p className="">Grocery</p>
@@ -36,8 +40,8 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="">Information</p>
-            <div className="">
+            <p className="footer-heading">Information</p>
+            <div className="footer-para">
               <p className="">About Us</p>
               <p className="">Contact Us</p>
               <p className="">FAQs</p>
@@ -47,8 +51,8 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="">Customer Care</p>
-            <div className="">
+            <p className="footer-heading">Customer Care</p>
+            <div className="footer-para">
               <p className="">My Account</p>
               <p className="">Track Your Order</p>
               <p className="">Recently Viewed</p>
@@ -64,7 +68,7 @@ const Footer = () => {
           © 2024 TrendyMart made by Safayet Nur. All Rights Reserved.
         </p>
       </div>
-    </div>
+    </footer>
   );
 };
 

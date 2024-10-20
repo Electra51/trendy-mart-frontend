@@ -7,8 +7,11 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-      {/* <Outlet />
-      <Footer /> */}
+      <div style={{ height: "100vh" }}>
+        {" "}
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   );
 };
