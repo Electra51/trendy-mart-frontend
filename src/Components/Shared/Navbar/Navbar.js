@@ -29,6 +29,13 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // scroll to categories section
+  const scrollToCategories = () => {
+    const element = document.getElementById("categories-section");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <nav>
       <div className="container">
@@ -51,7 +58,9 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/categories">Categories</Link>
+              <a href="#categories-section" onClick={scrollToCategories}>
+                Categories
+              </a>
             </li>
             <li>
               <Link to="/products">Products</Link>

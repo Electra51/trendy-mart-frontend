@@ -1,0 +1,22 @@
+.products-container-user {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10%;
+  padding-top: 130px;
+}
+
+@media (max-width: 768px) {
+  .products-container-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10%;
+  }
+}

@@ -55,15 +55,17 @@ const Categories = () => {
   if (errorCategories) return <p>Error loading categories!</p>;
 
   return (
-    <div className="container">
-      <h3 className="section-head">Categories</h3>
-      <Slider {...settings} className="slider-container">
-        {categories?.category?.map((category) => (
-          <div key={category._id} className="category">
-            <p> {category.name}</p>
-          </div>
-        ))}
-      </Slider>
+    <div className="categories-section" id="categories-section">
+      <div className="container">
+        <h3 className="section-head">Categories</h3>
+        <Slider {...settings} className="slider-container">
+          {categories?.category?.map((category) => (
+            <div key={category._id} className="category">
+              <p> {category.name}</p>
+            </div>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };

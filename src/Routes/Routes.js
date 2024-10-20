@@ -10,6 +10,7 @@ import CategoriesPage from "../Pages/AdminDashboardPage/CategoriesMenuPage/Categ
 import Profile from "../Pages/AdminDashboardPage/ProfilePage/Profile";
 import AdminDashboard from "../Pages/AdminDashboardPage/AdminDashboard/AdminDashboard";
 import CartPage from "../Pages/CartPage/CartPage";
+import ProductPage from "../Pages/ProductPage/ProductPage";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <CartPage />,
+      },
+      {
+        path: "/products",
+        element: <ProductPage />,
       },
     ],
   },
