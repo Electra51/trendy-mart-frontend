@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-      <div style={{ height: "100vh" }}>
+      <div>
         {" "}
         <Outlet />
       </div>
