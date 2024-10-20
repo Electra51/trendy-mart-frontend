@@ -1,0 +1,18 @@
+.section-head {
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  font-family: "Averia Libre", serif;
+  margin-top: 8%;
+  margin-bottom: 3%;
+}
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10%;
+  margin-top: 3%;
+}

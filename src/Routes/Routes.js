@@ -8,6 +8,8 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import ProductsPage from "../Pages/AdminDashboardPage/ProductsMenuPage/ProductsPage";
 import CategoriesPage from "../Pages/AdminDashboardPage/CategoriesMenuPage/CategoriesPage";
 import Profile from "../Pages/AdminDashboardPage/ProfilePage/Profile";
+import AdminDashboard from "../Pages/AdminDashboardPage/AdminDashboard/AdminDashboard";
+import CartPage from "../Pages/CartPage/CartPage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      {
+        path: "/cart",
+        element: <CartPage />,
+      },
     ],
   },
   {
@@ -28,6 +34,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
 
     children: [
+      {
+        path: "/admin-dashboard",
+        element: <AdminDashboard />,
+      },
       {
         path: "/admin-dashboard/products",
         element: <ProductsPage />,

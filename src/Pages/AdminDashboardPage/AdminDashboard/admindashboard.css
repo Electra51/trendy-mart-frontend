@@ -1,0 +1,10 @@
+.admin-dashoard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15%;
+}
+.admin-dashoard p {
+  margin: 0;
+}

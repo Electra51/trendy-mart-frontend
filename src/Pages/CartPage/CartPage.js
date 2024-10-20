@@ -1,0 +1,128 @@
+import React from "react";
+import "./cart.css";
+import { useSelector, useDispatch } from "react-redux";
+import { decreaseQuantity, increaseQuantity } from "../../Redux/cartSlice";
+import { TbCurrencyTaka } from "react-icons/tb";
+import { usePlaceOrderMutation } from "../../Redux/orderApi";
+
+const CartPage = () => {
+  const cart = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+  const [placeOrder, { isLoading, isError, isSuccess }] =
+    usePlaceOrderMutation();
+
+  const handleIncreaseQuantity = (id) => {
+    dispatch(increaseQuantity({ id }));
+  };
+
+  const handleDecreaseQuantity = (id) => {
+    dispatch(decreaseQuantity({ id }));
+  };
+
+  const handlePlaceOrder = async () => {
+    const orderData = {
+      cart: cart.map((item) => item.id), // Extract only the IDs
+    };
+
+    try {
+      await placeOrder(orderData).unwrap();
+      console.log("Order placed successfully!");
+    } catch (error) {
+      console.error("Failed to place order:", error);
+    }
+  };
+
+  const calculateSubtotal = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const calculateShippingChargeForsub = () => {
+    return cart.reduce((total, item) => total + item.shipping_charge, 0);
+  };
+
+  const calculateTotalPayable = () => {
+    const subtotal = calculateSubtotal();
+    const shippingCharge = calculateShippingChargeForsub();
+    return subtotal + shippingCharge;
+  };
+
+  return (
+    <div className="cart-container">
+      <div className="cart-left">
+        <h2>My Cart Items</h2>
+        {cart.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          cart.map((item) => (
+            <div key={item.id} className="cart-item">
+              <div className="cart-left-content">
+                <div className="cart-img">
+                  <img
+                    src={`http://localhost:8080/${item.photo}`}
+                    alt={item.name}
+                    className="cart-item-image"
+                  />
+                </div>
+                <div className="cart-item-details">
+                  <h4>{item.name}</h4>
+                  <p>Price: {item.price} BDT</p>
+                  <p>Shipping: {item.shippingCharge} BDT</p>
+                </div>
+              </div>
+              <div className="cart-quantity">
+                <button onClick={() => handleDecreaseQuantity(item.id)}>
+                  -
+                </button>
+                <p>{item.quantity}</p>
+                <button onClick={() => handleIncreaseQuantity(item.id)}>
+                  +
+                </button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+      <div className="cart-right">
+        <h2>Order Summary</h2>
+        <div
+          className="order-summary"
+          style={{ boxShadow: "0px 0px 6px #C9C9C919" }}>
+          <div className="row-item">
+            <p>Subtotal ({cart.length} items)</p>
+            <p className="">
+              <TbCurrencyTaka /> {calculateSubtotal()}
+            </p>
+          </div>
+          <div className="row-item">
+            <p>Shipping Charge</p>
+            <p className="">
+              <TbCurrencyTaka /> {calculateShippingChargeForsub()}
+            </p>
+          </div>
+          <div className="row-item">
+            <p>Wallet Debit</p>
+            <p className="">
+              <TbCurrencyTaka /> 0
+            </p>
+          </div>
+          <div className="row-item">
+            <p>Total Payable</p>
+            <p className="">
+              <TbCurrencyTaka /> {calculateTotalPayable()}
+            </p>
+          </div>
+          <button
+            className="order-button"
+            onClick={handlePlaceOrder}
+            disabled={isLoading}>
+            Order Now
+          </button>
+        </div>
+        {isSuccess && <p>Order placed successfully!</p>}
+        {isError && <p>Failed to place order. Please try again.</p>}
+      </div>
+    </div>
+  );
+};
+
+export default CartPage;

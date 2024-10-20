@@ -1,5 +1,5 @@
 import React from "react";
-const Button = ({ title, color }) => {
+const Button = ({ title, color, onClick }) => {
   return (
     <button
       style={{
@@ -10,7 +10,8 @@ const Button = ({ title, color }) => {
         fontSize: 15,
         padding: "7px 15px",
         color: "white",
-      }}>
+      }}
+      onClick={onClick}>
       {title}
     </button>
   );
