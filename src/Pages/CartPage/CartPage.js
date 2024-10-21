@@ -5,6 +5,7 @@ import {
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
+  clearCart,
 } from "../../Redux/cartSlice";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { usePlaceOrderMutation } from "../../Redux/orderApi";
@@ -39,7 +40,8 @@ const CartPage = () => {
 
     try {
       await placeOrder(orderData).unwrap();
-      console.log("Order placed successfully!");
+      dispatch(clearCart());
+      toast.success("Order placed successfully!");
     } catch (error) {
       console.error("Failed to place order:", error);
     }
@@ -58,9 +60,11 @@ const CartPage = () => {
     const shippingCharge = calculateShippingChargeForsub();
     return subtotal + shippingCharge;
   };
+
   const handleRemoveItem = (id) => {
     dispatch(removeFromCart({ id }));
   };
+
   return (
     <div className="cart-container">
       <div className="cart-left">
