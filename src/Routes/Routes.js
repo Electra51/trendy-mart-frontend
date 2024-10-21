@@ -15,6 +15,7 @@ import UserDashboard from "../Pages/UserDashboardPage/UserDashboard";
 import UserOrderPage from "../Pages/UserDashboardPage/UserOrderPage/UserOrderPage";
 import OrderMenuPage from "../Pages/AdminDashboardPage/OrderMenuPage/OrderMenuPage";
 import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,13 +40,21 @@ const router = createBrowserRouter([
   },
   {
     path: "/user-dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage />,
 
     children: [
       {
         path: "/user-dashboard",
-        element: <UserDashboard />,
+        element: (
+          <PrivateRoute>
+            <UserDashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/user-dashboard/orders",

@@ -90,7 +90,7 @@ const ProductsPage = () => {
                   <span>{index + 1}. </span>
                   <div className="admin-product-img">
                     <img
-                      src={`http://localhost:8080/${product.photo}`} // Directly reference the image using the path stored in product.photo
+                      src={`https://trendy-mart-backend.vercel.app/${product.photo}`} // Directly reference the image using the path stored in product.photo
                       alt={product.name}
                     />
                   </div>

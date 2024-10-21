@@ -1,26 +1,19 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useAuth } from "../context/auth";
-import Spinner from "../components/common/Spinner";
+import { useEffect, useState } from "react";
+import { useUserAuthQuery } from "../Redux/authApi";
 
 export default function PrivateRoute({ children }) {
   const [ok, setOk] = useState(false);
-  const [auth, setAuth] = useAuth();
+  const { data, isLoading, error } = useUserAuthQuery();
 
   useEffect(() => {
-    const authCheck = async () => {
-      const res = await axios.get(
-        `http://localhost:8080/api/v1/auth/user-auth`
-      );
-      if (res) {
-        console.log("first", res.data.ok);
-        setOk(true);
-      } else {
-        setOk(false);
-      }
-    };
-    if (auth?.token) authCheck();
-  }, [auth?.token]);
+    if (data && data.ok) {
+      setOk(true);
+    } else {
+      setOk(false);
+    }
+  }, [data]);
 
-  return ok ? <div>{children}</div> : <Spinner />;
+  if (isLoading) return <p>Loading</p>;
+
+  return ok ? <div>{children}</div> : <div>You are not authorized</div>;
 }

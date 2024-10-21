@@ -77,7 +77,7 @@ const CartPage = () => {
               <div className="cart-left-content">
                 <div className="cart-img">
                   <img
-                    src={`http://localhost:8080/${item.photo}`}
+                    src={`https://trendy-mart-backend.vercel.app/${item.photo}`}
                     alt={item.name}
                     className="cart-item-image"
                   />

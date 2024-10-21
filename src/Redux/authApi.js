@@ -2,7 +2,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const authApi = createApi({
   reducerPath: "authApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8080/api/v1/auth" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://trendy-mart-backend.vercel.app/api/v1/auth",
+  }),
   endpoints: (builder) => ({
     registerUser: builder.mutation({
       query: (userData) => ({
@@ -50,6 +52,15 @@ export const authApi = createApi({
         },
       }),
     }),
+    userAuth: builder.query({
+      query: () => ({
+        url: "/user-auth",
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Use the token from localStorage
+        },
+      }),
+    }),
   }),
 });
 
@@ -57,4 +68,5 @@ export const {
   useRegisterUserMutation,
   useLoginUserMutation,
   useAdminAuthQuery,
+  useUserAuthQuery,
 } = authApi;

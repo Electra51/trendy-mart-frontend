@@ -33,7 +33,7 @@ const Card = ({ product }) => {
     <div className="card">
       <div className="card-img">
         <img
-          src={`http://localhost:8080/${product.photo}`}
+          src={`https://trendy-mart-backend.vercel.app/${product.photo}`}
           alt={product.name}
         />
       </div>
