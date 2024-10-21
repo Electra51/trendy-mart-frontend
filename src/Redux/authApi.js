@@ -48,7 +48,7 @@ export const authApi = createApi({
         url: "/admin-auth",
         method: "GET",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Use the token from localStorage
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       }),
     }),
@@ -57,7 +57,7 @@ export const authApi = createApi({
         url: "/user-auth",
         method: "GET",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Use the token from localStorage
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       }),
     }),

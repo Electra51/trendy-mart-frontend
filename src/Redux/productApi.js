@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const productApi = createApi({
-  reducerPath: "productApi", // Change to "productApi" to avoid conflict
+  reducerPath: "productApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://trendy-mart-backend.vercel.app/api/v1",
     prepareHeaders: (headers) => {
@@ -18,9 +18,6 @@ export const productApi = createApi({
         url: "/products/create-product",
         method: "POST",
         body: productData,
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
       }),
     }),
     getProducts: builder.query({
