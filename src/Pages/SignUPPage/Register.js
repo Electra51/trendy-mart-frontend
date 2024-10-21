@@ -25,7 +25,7 @@ const Register = () => {
 
       console.log("first", formData);
       toast.success("Registration Successfully done");
-      navigate("/");
+      navigate("/sign-in");
     } catch (err) {
       console.error("Failed to register:", err);
     }

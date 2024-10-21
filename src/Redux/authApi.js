@@ -18,7 +18,7 @@ export const authApi = createApi({
         if (token) {
           localStorage.setItem("token", token);
           if (users) {
-            localStorage.setItem("user", JSON.stringify(users)); // Store user data
+            localStorage.setItem("user", JSON.stringify(users));
           }
         }
         return response;
@@ -37,7 +37,7 @@ export const authApi = createApi({
         if (token) {
           localStorage.setItem("token", token);
           if (users) {
-            localStorage.setItem("user", JSON.stringify(users)); // Store user data
+            localStorage.setItem("user", JSON.stringify(users));
           }
         }
         return response;

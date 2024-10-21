@@ -50,7 +50,6 @@ const Categories = () => {
     ],
   };
 
-  // Handling loading and error states
   if (loadingCategories) return <p>Loading categories...</p>;
   if (errorCategories) return <p>Error loading categories!</p>;
 
@@ -60,8 +59,8 @@ const Categories = () => {
         <h3 className="section-head">Categories</h3>
         <Slider {...settings} className="slider-container">
           {categories?.category?.map((category) => (
-            <div key={category._id} className="category">
-              <p> {category.name}</p>
+            <div key={category?._id} className="category">
+              <p> {category?.name}</p>
             </div>
           ))}
         </Slider>

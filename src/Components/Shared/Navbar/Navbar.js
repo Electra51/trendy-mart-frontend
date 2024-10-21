@@ -16,6 +16,7 @@ const Navbar = () => {
   const cartCount = cartItems.length;
 
   const navigate = useNavigate();
+
   //logout
   const handleLogout = () => {
     localStorage.removeItem("user");

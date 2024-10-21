@@ -15,7 +15,7 @@ const ProductsPage = () => {
     data: categories,
     isLoading: loadingCategories,
     error: errorCategories,
-  } = useGetCategoriesQuery(); // Fetch categories
+  } = useGetCategoriesQuery();
   const [showModal, setShowModal] = useState(false);
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
@@ -23,7 +23,7 @@ const ProductsPage = () => {
   const [shippingCharge, setShippingCharge] = useState("");
   const [description, setDescription] = useState("");
   const [countInStock, setCountInStock] = useState("");
-  const [category, setCategory] = useState(""); // For the category ID
+  const [category, setCategory] = useState("");
   const [photo, setPhoto] = useState(null);
 
   console.log("categories", categories?.category);
@@ -60,7 +60,6 @@ const ProductsPage = () => {
     }
   };
   const [page, setPage] = useState(0);
-  // Helper function to get category name by ID
   const getCategoryName = (categoryId) => {
     const categoryObj = categories?.category?.find(
       (cat) => cat._id === categoryId
@@ -90,7 +89,7 @@ const ProductsPage = () => {
                   <span>{index + 1}. </span>
                   <div className="admin-product-img">
                     <img
-                      src={`https://trendy-mart-backend.vercel.app/${product.photo}`} // Directly reference the image using the path stored in product.photo
+                      src={`https://trendy-mart-backend.vercel.app/${product.photo}`}
                       alt={product.name}
                     />
                   </div>
@@ -157,7 +156,7 @@ const ProductsPage = () => {
           setCountInStock={setCountInStock}
           category={category}
           setCategory={setCategory}
-          categories={categories} // Pass categories to the modal if needed
+          categories={categories}
         />
       )}
     </div>

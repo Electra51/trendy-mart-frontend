@@ -1,21 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { menus } from "../../Common/data/data.js";
-import { IoIosArrowDown, IoIosArrowDropright } from "react-icons/io";
-import { RiShoppingCartLine } from "react-icons/ri";
-import { IoMenuOutline, IoSearchOutline } from "react-icons/io5";
-import { LuUser2 } from "react-icons/lu";
 import navLogo from "../../../assets/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 import profileImg from "../../../assets/user.jpg";
 import toast from "react-hot-toast";
 import "./sidebar.css";
 const SideBar = () => {
-  const [open, setOpen] = useState(false);
-  const [subMenuOpen, setSubMenuOpen] = useState(false);
   const userAuth = JSON.parse(localStorage.getItem("user"));
-  // Filter menus based on user role
   const filteredMenus = menus.filter((menu) => menu.role === userAuth?.role);
   console.log("userAuth?.name", userAuth.name);
   const navigate = useNavigate();

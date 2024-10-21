@@ -7,7 +7,11 @@
 }
 .add-button p {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: "Averia Libre", serif;
+  margin-top: 20px;
+  border-bottom: 1px solid rgb(216, 215, 215);
+  padding-bottom: 6px;
 }
 
 .category-list {

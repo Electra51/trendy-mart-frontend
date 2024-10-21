@@ -7,7 +7,7 @@ import Register from "../Pages/SignUPPage/Register";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import ProductsPage from "../Pages/AdminDashboardPage/ProductsMenuPage/ProductsPage";
 import CategoriesPage from "../Pages/AdminDashboardPage/CategoriesMenuPage/CategoriesPage";
-import Profile from "../Pages/AdminDashboardPage/ProfilePage/Profile";
+import Profile from "../Pages/ProfilePage/Profile";
 import AdminDashboard from "../Pages/AdminDashboardPage/AdminDashboard/AdminDashboard";
 import CartPage from "../Pages/CartPage/CartPage";
 import ProductPage from "../Pages/ProductPage/ProductPage";
@@ -38,6 +38,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // user dashboard
   {
     path: "/user-dashboard",
     element: (
@@ -58,10 +59,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/user-dashboard/orders",
-        element: <UserOrderPage />,
+        element: (
+          <PrivateRoute>
+            <UserOrderPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/user-dashboard/profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
     ],
   },
+  // admin dashboard
   {
     path: "/admin-dashboard",
     element: (
@@ -113,7 +127,6 @@ const router = createBrowserRouter([
         path: "/admin-dashboard/profile",
         element: (
           <AdminRoute>
-            {" "}
             <Profile />
           </AdminRoute>
         ),

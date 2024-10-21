@@ -8,10 +8,8 @@ const DashboardLayout = () => {
   return (
     <div>
       <HelmetComponent title={"Dashboard | deostore"} />
-
       <div className="dashboard-part">
         <SideBar />
-
         <div className="dashboard-content">
           <Outlet />
         </div>

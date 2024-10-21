@@ -43,7 +43,7 @@ const cartSlice = createSlice({
         item.quantity -= 1;
         localStorage.setItem("cart", JSON.stringify(state.items));
       } else {
-        toast.error("Quantity cannot be less than 1"); // Adjust the message if needed
+        toast.error("Quantity cannot be less than 1");
       }
     },
 

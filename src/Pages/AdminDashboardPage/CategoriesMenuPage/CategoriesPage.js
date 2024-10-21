@@ -27,15 +27,15 @@ const CategoriesPage = () => {
     if (categoryName) {
       try {
         const response = await addCategory({ name: categoryName }).unwrap();
-        // console.log("Category added successfully:", response);
-        setCategoryName(""); // Clear the input field
-        setShowModal(false); // Close the modal
-        toast.success("Category added successfully!"); // Show success message
 
-        refetch(); // Refresh the list of categories
+        setCategoryName("");
+        setShowModal(false);
+        toast.success("Category added successfully!");
+
+        refetch();
       } catch (err) {
         console.error("Failed to add category:", err);
-        toast.error("Failed to add category. Please try again."); // Display error message
+        toast.error("Failed to add category. Please try again.");
       }
     }
   };
