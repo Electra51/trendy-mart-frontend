@@ -1,9 +1,15 @@
 import React from "react";
 import "./cart.css";
 import { useSelector, useDispatch } from "react-redux";
-import { decreaseQuantity, increaseQuantity } from "../../Redux/cartSlice";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromCart,
+} from "../../Redux/cartSlice";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { usePlaceOrderMutation } from "../../Redux/orderApi";
+import { RxCross2 } from "react-icons/rx";
+import toast from "react-hot-toast";
 
 const CartPage = () => {
   const cart = useSelector((state) => state.cart.items);
@@ -20,8 +26,15 @@ const CartPage = () => {
   };
 
   const handlePlaceOrder = async () => {
+    const userAuth = JSON.parse(localStorage.getItem("user"));
+
+    if (!userAuth) {
+      toast.error("Please Login First, then place order");
+      return;
+    }
+
     const orderData = {
-      cart: cart.map((item) => item.id), // Extract only the IDs
+      cart: cart.map((item) => item.id),
     };
 
     try {
@@ -45,7 +58,9 @@ const CartPage = () => {
     const shippingCharge = calculateShippingChargeForsub();
     return subtotal + shippingCharge;
   };
-
+  const handleRemoveItem = (id) => {
+    dispatch(removeFromCart({ id }));
+  };
   return (
     <div className="cart-container">
       <div className="cart-left">
@@ -55,6 +70,10 @@ const CartPage = () => {
         ) : (
           cart.map((item) => (
             <div key={item.id} className="cart-item">
+              <RxCross2
+                className="remove-icon"
+                onClick={() => handleRemoveItem(item.id)}
+              />
               <div className="cart-left-content">
                 <div className="cart-img">
                   <img
@@ -66,7 +85,7 @@ const CartPage = () => {
                 <div className="cart-item-details">
                   <h4>{item.name}</h4>
                   <p>Price: {item.price} BDT</p>
-                  <p>Shipping: {item.shippingCharge} BDT</p>
+                  <p>Shipping: {item.shipping_charge} BDT</p>
                 </div>
               </div>
               <div className="cart-quantity">
@@ -119,7 +138,9 @@ const CartPage = () => {
           </button>
         </div>
         {isSuccess && <p>Order placed successfully!</p>}
-        {isError && <p>Failed to place order. Please try again.</p>}
+        {isError && (
+          <p className="err">Please, Login first then place order.</p>
+        )}
       </div>
     </div>
   );

@@ -1,27 +1,10 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Spinner from "../components/common/Spinner";
-import { useAuth } from "../context/auth";
+import { useAdminAuthQuery } from "../Redux/authApi"; // Adjust the import based on your file structure
 
 export default function AdminRoute({ children }) {
-  const [ok, setOk] = useState(false);
-  const [auth, setAuth] = useAuth();
+  const { data, isLoading, error } = useAdminAuthQuery();
 
-  useEffect(() => {
-    const authCheck = async () => {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/auth/admin-auth`
-      );
-      if (res) {
-        console.log("first", res.data.ok);
-        setOk(true);
-      } else {
-        setOk(false);
-      }
-    };
-    if (auth?.token) authCheck();
-  }, [auth?.token]);
-  console.log(ok);
+  if (isLoading) return <p>Loading</p>;
+  if (error || !data?.ok) return <div>You are not authorized</div>; // Handle unauthorized access
 
-  return ok ? <div>{children}</div> : <Spinner />;
+  return <div>{children}</div>;
 }

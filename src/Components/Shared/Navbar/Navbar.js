@@ -70,9 +70,12 @@ const Navbar = () => {
             </li>
 
             {userAuth ? (
-              <li className="nav-user">
-                <img src={userImg} alt="" />
-                <p>{userAuth?.name}</p>
+              <li>
+                <Link to="/user-dashboard" className="nav-user">
+                  {" "}
+                  <img src={userImg} alt="" />
+                  <p>{userAuth?.name}</p>
+                </Link>
               </li>
             ) : (
               <li>

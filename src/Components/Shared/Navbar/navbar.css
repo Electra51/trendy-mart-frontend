@@ -96,7 +96,7 @@ nav .wrapper {
 .nav-user img {
   height: 25px;
   width: 25px;
-  border: 1px solid red;
+  border: 1px solid rgb(139, 142, 153);
   border-radius: 100%;
 }
 

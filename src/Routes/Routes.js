@@ -11,6 +11,10 @@ import Profile from "../Pages/AdminDashboardPage/ProfilePage/Profile";
 import AdminDashboard from "../Pages/AdminDashboardPage/AdminDashboard/AdminDashboard";
 import CartPage from "../Pages/CartPage/CartPage";
 import ProductPage from "../Pages/ProductPage/ProductPage";
+import UserDashboard from "../Pages/UserDashboardPage/UserDashboard";
+import UserOrderPage from "../Pages/UserDashboardPage/UserOrderPage/UserOrderPage";
+import OrderMenuPage from "../Pages/AdminDashboardPage/OrderMenuPage/OrderMenuPage";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,30 +38,76 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/admin-dashboard",
+    path: "/user-dashboard",
     element: <DashboardLayout />,
     errorElement: <ErrorPage />,
 
     children: [
       {
+        path: "/user-dashboard",
+        element: <UserDashboard />,
+      },
+      {
+        path: "/user-dashboard/orders",
+        element: <UserOrderPage />,
+      },
+    ],
+  },
+  {
+    path: "/admin-dashboard",
+    element: (
+      <AdminRoute>
+        {" "}
+        <DashboardLayout />
+      </AdminRoute>
+    ),
+    errorElement: <ErrorPage />,
+
+    children: [
+      {
         path: "/admin-dashboard",
-        element: <AdminDashboard />,
+        element: (
+          <AdminRoute>
+            {" "}
+            <AdminDashboard />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin-dashboard/products",
-        element: <ProductsPage />,
+        element: (
+          <AdminRoute>
+            {" "}
+            <ProductsPage />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin-dashboard/categories",
-        element: <CategoriesPage />,
+        element: (
+          <AdminRoute>
+            {" "}
+            <CategoriesPage />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin-dashboard/orders",
-        element: <CategoriesPage />,
+        element: (
+          <AdminRoute>
+            {" "}
+            <OrderMenuPage />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin-dashboard/profile",
-        element: <Profile />,
+        element: (
+          <AdminRoute>
+            {" "}
+            <Profile />
+          </AdminRoute>
+        ),
       },
     ],
   },

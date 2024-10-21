@@ -41,7 +41,20 @@ export const authApi = createApi({
         return response;
       },
     }),
+    adminAuth: builder.query({
+      query: () => ({
+        url: "/admin-auth",
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Use the token from localStorage
+        },
+      }),
+    }),
   }),
 });
 
-export const { useRegisterUserMutation, useLoginUserMutation } = authApi;
+export const {
+  useRegisterUserMutation,
+  useLoginUserMutation,
+  useAdminAuthQuery,
+} = authApi;

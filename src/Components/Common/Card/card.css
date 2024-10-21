@@ -29,10 +29,9 @@
 
 .card-bottom {
   position: absolute;
-  bottom: 25px; /* Position from the bottom */
-  left: 50%; /* Set left to 50% */
-  transform: translateX(-50%); /* Shift left by 50% of its own width */
-  /* border: 1px solid red; */
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .card-button-bottom {
   display: flex;
@@ -44,4 +43,8 @@
 .cart-icon {
   font-size: 20px;
   color: #000;
+}
+
+.added-cart {
+  color: #d67931;
 }

@@ -1,5 +1,4 @@
 export const menus = [
-  { to: "user", title: "Dashboard", role: 0 },
   { to: "categories", title: "Categories", role: 1 },
   { to: "products", title: "Products", role: 1 },
   { to: "orders", title: "Orders", role: 0 },

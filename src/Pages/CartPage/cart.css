@@ -26,7 +26,7 @@
   display: grid;
   justify-content: center;
   align-items: center;
-
+  position: relative;
   grid-template-columns: 1fr 1fr;
   padding: 15px 20px;
   border: 1px solid rgb(243, 216, 183);
@@ -70,4 +70,31 @@
   color: white;
   text-align: center;
   margin-top: 20px;
+}
+.remove-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.cart-item-details p {
+  margin: 0;
+}
+.err {
+  color: red;
+}
+/* responsive media */
+@media (max-width: 768px) {
+  .cart-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: auto 25px;
+  }
+  .cart-item {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .cart-quantity {
+    margin-top: 10px;
+  }
 }

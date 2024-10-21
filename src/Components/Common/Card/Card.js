@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./card.css";
-import { BsCart2 } from "react-icons/bs";
+import { BsCart2, BsFillCartFill } from "react-icons/bs";
 import Button from "../Button/Button";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../Redux/cartSlice"; // Import addToCart action
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../../Redux/cartSlice";
 
 const Card = ({ product }) => {
-  const dispatch = useDispatch(); // Get the dispatch function
+  const dispatch = useDispatch();
   console.log(product);
+  const cartItems = useSelector((state) => state.cart.items);
+  const [isAdded, setIsAdded] = useState(
+    cartItems.some((item) => item.id === product._id)
+  );
+
   const handleAddToCart = () => {
     dispatch(
       addToCart({
@@ -19,7 +24,7 @@ const Card = ({ product }) => {
         discount: product?.discount,
         countInStock: product?.countInStock,
         photo: product?.photo,
-        quantity: 1, // Keep this if you want to store it but won't be used now
+        quantity: 1,
       })
     );
   };
@@ -28,7 +33,7 @@ const Card = ({ product }) => {
     <div className="card">
       <div className="card-img">
         <img
-          src={`http://localhost:8080/${product.photo}`} // Directly reference the image using the path stored in product.photo
+          src={`http://localhost:8080/${product.photo}`}
           alt={product.name}
         />
       </div>
@@ -49,8 +54,17 @@ const Card = ({ product }) => {
         </p>
         <div className="card-bottom">
           <div className="card-button-bottom">
-            <div className="cart-icon" onClick={handleAddToCart}>
+            {/* <div className="cart-icon" onClick={handleAddToCart}>
               <BsCart2 />
+            </div> */}
+            <div
+              className={`cart-icon ${isAdded ? "added" : ""}`}
+              onClick={handleAddToCart}>
+              {isAdded ? (
+                <BsFillCartFill className="added-cart" />
+              ) : (
+                <BsCart2 />
+              )}
             </div>
             <Button title={"View Details"} color={"#5A5CDA"} />
           </div>
